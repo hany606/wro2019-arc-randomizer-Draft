@@ -1,0 +1,37 @@
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.row {
+    margin: auto;
+}
+
+#field-view {
+    padding-bottom: 24px;
+}
+
+#encoded-field {
+    padding: 12px;
+    font-size: 2em;
+}
+
+#field-canvas {
+    width: 50%;
+    display: block;
+}
+
+#field-descr {
+    width: 30%;
+    float: left;
+    overflow: hidden;
+}
+
+.descr-paragraph {
+    margin-bottom: 0;
+}

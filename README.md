@@ -1,2 +1,2 @@
-# wro2018-arc-randomizer
-A web tool to help in drawing procedure for the challenge "Smart Greenhouse" of Advanced Robotics Category on World Robot Olympiad 2018/19
+# wro2019-arc-randomizer-Draft
+This is a draft work that is a private mirrored and improved from the last year work for the work of 2020 from [here](https://github.com/akolotov/wro2018-arc-randomizer).

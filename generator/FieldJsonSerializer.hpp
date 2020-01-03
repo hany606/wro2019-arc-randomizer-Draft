@@ -13,7 +13,7 @@
 
 class FieldJsonSerializer {
 public:
-    static std::string serialize(const Field& f, const std::list<Point>& path) {
+    static std::string serialize(const Field& f, const Field& fake1, const Field& fake2, const Field& fake3,  const std::list<Point>& path) {
         std::stringstream ss;
         ss << "{\n";
         ss << collectionToString<Point, Point>("parkingZone",
@@ -24,10 +24,30 @@ public:
         ss << "\"parkingZoneDirection\": " << f.parkingZone.direction << ",\n";
 
         ss << collectionToString<Box, Rect>("boxes",
-                                    f.boxes.begin(),
-                                    f.boxes.end(),
-                                    [](Box b) { return b.location; });
+                                            f.boxes.begin(),
+                                            f.boxes.end(),
+                                            [](Box b) { return b.location; });
         ss << ",\n";
+
+        ss << collectionToString<Box, Rect>("fakeBoxes1",
+                                            fake1.boxes.begin(),
+                                            fake1.boxes.end(),
+                                            [](Box b) { return b.location; });
+        ss << ",\n";
+
+        ss << collectionToString<Box, Rect>("fakeBoxes2",
+                                            fake2.boxes.begin(),
+                                            fake2.boxes.end(),
+                                            [](Box b) { return b.location; });
+        ss << ",\n";
+
+        ss << collectionToString<Box, Rect>("fakeBoxes3",
+                                            fake3.boxes.begin(),
+                                            fake3.boxes.end(),
+                                            [](Box b) { return b.location; });
+        ss << ",\n";
+
+
         ss << collectionToString<Box, std::string>("boxColors",
                                           f.boxes.begin(),
                                           f.boxes.end(),
@@ -45,6 +65,8 @@ public:
 
         return ss.str();
     }
+
+
 
 private:
 

@@ -4,7 +4,6 @@
   "description": "",
   "private": true,
   "scripts": {
-
     "build": "babel src --out-dir src.transpiled --source-maps",
     "pack": "webpack",
     "start": "node src.transpiled/server/app.js",

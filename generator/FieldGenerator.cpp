@@ -14,8 +14,15 @@
 std::default_random_engine FieldGenerator::rand(time(NULL));
 
 
+ParkingZone FieldGenerator::generateParkingZone() {
+    ParkingZone zone = randParkingZone();
+    while(minDistToWall(zone.location.points[3]) < 460) {
+        zone = randParkingZone();
+    }
+    return zone;
+}
 
-Field FieldGenerator::generate() {
+Field FieldGenerator::generate(ParkingZone baseZone) {
 
     freePoints.reserve(19*19);
     for(int i = 0; i <= 18; i++) {
@@ -27,10 +34,7 @@ Field FieldGenerator::generate() {
         return p1.distance(Field::FieldRect().center()) > p2.distance(Field::FieldRect().center());
     });
 
-    ParkingZone zone = randParkingZone();
-    while(minDistToWall(zone.location.points[3]) < 460) {
-        zone = randParkingZone();
-    }
+    ParkingZone zone = baseZone;
 
     f = new Field(zone);
 
@@ -63,7 +67,6 @@ Field FieldGenerator::generate() {
 
     return f_copy;
 }
-
 
 
 std::list<Point> FieldGenerator::getPath() const {

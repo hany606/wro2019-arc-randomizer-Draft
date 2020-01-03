@@ -18,5 +18,6 @@ export default async function generateField() {
     else {
         f.err = null;
     }
+    console.log(f)
     return f;
 }

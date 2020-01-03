@@ -14,9 +14,13 @@ int main(int argc, char** argv) {
     int fails = 0;
     while (fails < 1000) {
         try {
-            Field f = generator.generate();
+            ParkingZone zone = generator.generateParkingZone();
+            Field baseField  = generator.generate(zone);
+            Field fakeField1 = generator.generate(zone);
+            Field fakeField2 = generator.generate(zone);
+            Field fakeField3 = generator.generate(zone);
 
-            auto json = FieldJsonSerializer::serialize(f, generator.getPath());
+            auto json = FieldJsonSerializer::serialize(baseField, fakeField1, fakeField2, fakeField3, generator.getPath());
             std::cout << json;
 
             if(argc > 1 && strcmp(argv[1], "log") == 0) {

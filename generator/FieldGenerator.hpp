@@ -12,7 +12,8 @@
 class FieldGenerator {
 public:
 
-    Field generate();
+    Field generate(ParkingZone baseZone);
+    ParkingZone generateParkingZone();
 
     std::list<Point> getPath() const;
 

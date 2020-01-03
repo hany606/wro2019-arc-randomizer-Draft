@@ -53,6 +53,22 @@ print(len(boxes))
 boxes = set(boxes)
 print(len(boxes))
 
+fake_boxes1 = reduce(lambda bs1, bs2: bs1 + bs2, list(map(lambda f: list(str(b) for b in f["fakeBoxes1"]), fields)))
+print(len(fake_boxes1))
+fake_boxes1 = set(fake_boxes1)
+print(len(fake_boxes1))
+
+fake_boxes2 = reduce(lambda bs1, bs2: bs1 + bs2, list(map(lambda f: list(str(b) for b in f["fakeBoxes2"]), fields)))
+print(len(fake_boxes2))
+fake_boxes2 = set(fake_boxes2)
+print(len(fake_boxes2))
+
+fake_boxes3 = reduce(lambda bs1, bs2: bs1 + bs2, list(map(lambda f: list(str(b) for b in f["fakeBoxes3"]), fields)))
+print(len(fake_boxes3))
+fake_boxes3 = set(fake_boxes3)
+print(len(fake_boxes3))
+
+
 parking_zones = list(map(lambda f: ParkingZone(f["parkingZone"]), fields))
 print(len(parking_zones))
 parking_zones = set(parking_zones)

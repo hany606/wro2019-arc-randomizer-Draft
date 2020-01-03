@@ -7,7 +7,7 @@ const A4_SIZE = {width: 210, height: 297};
 export default function generate() {
     let logo = document.getElementsByTagName("img")[0];
     let field = document.getElementById("field-canvas");
-    let qr_codes = document.getElementById("test");
+    let qr_codes = document.getElementById("qr-codes");
     let encoded_string = document.getElementById("encoded-field");
     let element_coords = document.getElementById("field-descr");
 

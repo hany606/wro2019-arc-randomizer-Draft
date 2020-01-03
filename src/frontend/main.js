@@ -10,7 +10,6 @@ import generate from "./pdf_generator";
 
 window.onload = () => {
     getField().then((field) => {
-        console.log(field)
         let encoded_descr = encodeField(field);
         render(field, encoded_descr);
         createQR(field, encoded_descr);

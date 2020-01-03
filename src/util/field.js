@@ -55,6 +55,27 @@ export default class Field {
             throw Error("'boxes' field of the description should be an array of five rects; Got " + descr.boxes);
         }
 
+        if(isValidArrayOfN(descr.fakeBoxes1, 5, isRect)) { // all elements are rects
+            this.fakeBoxes1 = descr.fakeBoxes1;
+
+        } else {
+            throw Error("'fakeBoxes1' field of the description should be an array of five rects; Got " + descr.fakeBoxes1);
+        }
+        
+        if(isValidArrayOfN(descr.fakeBoxes2, 5, isRect)) { // all elements are rects
+            this.fakeBoxes2 = descr.fakeBoxes2;
+
+        } else {
+            throw Error("'fakeBoxes2' field of the description should be an array of five rects; Got " + descr.fakeBoxes2);
+        }
+        
+        if(isValidArrayOfN(descr.fakeBoxes3, 5, isRect)) { // all elements are rects
+            this.fakeBoxes3 = descr.fakeBoxes3;
+
+        } else {
+            throw Error("'fakeBoxes3' field of the description should be an array of five rects; Got " + descr.fakeBoxes3);
+        }
+
         if(isValidArrayOfN(descr.boxColors, 5, v => typeof Color.hasOwnProperty(v))) {
             this.boxColors = descr.boxColors;
 

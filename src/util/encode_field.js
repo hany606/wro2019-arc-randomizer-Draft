@@ -19,8 +19,6 @@ function encodeBox(box, key = nextIntIn(0, 1)) {
 export default function encodeField(field) {
     let fields = [];
     let res = "";
-    let boxesColors = ["Blue", "Orange", "Yellow", "Red", "Green"];
-
 
     // parking zone top left point
     res += "(" + encodePoint(field.parkingZone[0]) + ",";

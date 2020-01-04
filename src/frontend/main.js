@@ -5,7 +5,7 @@ import {render, createApp} from './renderer';
 import createQR from './qr_code_renderer';
 import getField from "./get_field";
 import encodeField from "../util/encode_field";
-import generate from "./pdf_generator";
+import {generate_qualification, generate_final} from "./pdf_generator";
 
 
 window.onload = () => {

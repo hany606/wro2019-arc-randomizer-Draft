@@ -4,7 +4,7 @@ import * as jsPDF from 'jspdf';
 
 const A4_SIZE = {width: 210, height: 297};
 
-export default function generate_qualification() {
+export function generate_qualification() {
     let logo = document.getElementsByTagName("img")[0];
     let field = document.getElementById("field-canvas");
 
@@ -51,7 +51,7 @@ export default function generate_qualification() {
 }
 
 
-export default function generate_final() {
+export function generate_final() {
     let logo = document.getElementsByTagName("img")[0];
     let field = document.getElementById("field-canvas");
     let qr_code_top_right = document.getElementById("qr-code-top-right");

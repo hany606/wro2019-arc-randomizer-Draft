@@ -21,7 +21,7 @@ export function generate_qualification() {
 
     let doc = new jsPDF({ unit: 'mm', format: "a4" });
 
-    doc.text("Qualification Round", 100, 0);
+    doc.text("Qualification Round", 100, 10);
 
 
     let shift = 0;
@@ -71,7 +71,7 @@ export function generate_final() {
 
     let doc = new jsPDF({ unit: 'mm', format: "a4" });
 
-    doc.text("Final Round", 100, 0);
+    doc.text("Final Round", 100, 10);
 
     let shift = 0;
     for (let coords of element_coords.children) {

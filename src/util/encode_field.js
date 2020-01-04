@@ -81,6 +81,8 @@ export default function encodeField(field) {
                y: field.parkingZone[0].y + field.parkingZoneDirection.y};
     res += encodePoint(dir) + ")";
 
+    let parkingZoneEncoding = res;
+
     // // blue box
     // let blueIdx = field.boxColors.indexOf("Blue");
     // let blueBox = encodeBox(field.boxes[blueIdx], nextIntIn(0, 2));
@@ -104,66 +106,36 @@ export default function encodeField(field) {
     // res += boxes[1-randomIdx];
 
     let randomIdxSet = randomSet(5,5);
-    let boxes = [];
-    let boxIdx = field.boxColors.indexOf("Blue");
-    let box = encodeBox(field.boxes[boxIdx], nextIntIn(0, 2));
-    res += box;
-    for(let i = 2; i <= 5; i++){
-        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
-        let box = encodeBox(field.boxes[boxIdx], nextIntIn(0, 2));
-        boxes.push(box);
-    }
     for(let i = 1; i <= 5; i++){
-        res += boxes[randomIdxSet[i-1]];
+        let box = encodeBox(field.boxes[randomIdxSet[i-1]], nextIntIn(0, 2));
+        res += box
     }
     fields[0] = res;
 
-    res = "";
+    res = parkingZoneEncoding;
     randomIdxSet = randomSet(5,5);
-    boxes = [];
-    boxIdx = field.boxColors.indexOf("Blue");
-    box = encodeBox(field.fakeBoxes1[boxIdx], nextIntIn(0, 2));
-    res += box;
-    for(let i = 2; i <= 5; i++){
-        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
-        let box = encodeBox(field.fakeBoxes1[boxIdx], nextIntIn(0, 2));
-        boxes.push(box);
-    }
     for(let i = 1; i <= 5; i++){
-        res += boxes[randomIdxSet[i-1]];
+        let box = encodeBox(field.fakeBoxes1[randomIdxSet[i-1]], nextIntIn(0, 2));
+        res += box
     }
     fields[1] = res;
 
-    res = "";
+
+
+    res = parkingZoneEncoding;
     randomIdxSet = randomSet(5,5);
-    boxes = [];
-    boxIdx = field.boxColors.indexOf("Blue");
-    box = encodeBox(field.fakeBoxes2[boxIdx], nextIntIn(0, 2));
-    res += box;
-    for(let i = 2; i <= 5; i++){
-        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
-        let box = encodeBox(field.fakeBoxes2[boxIdx], nextIntIn(0, 2));
-        boxes.push(box);
-    }
     for(let i = 1; i <= 5; i++){
-        res += boxes[randomIdxSet[i-1]];
+        let box = encodeBox(field.fakeBoxes2[randomIdxSet[i-1]], nextIntIn(0, 2));
+        res += box
     }
     fields[2] = res;
 
 
-    res = "";
+    res = parkingZoneEncoding;
     randomIdxSet = randomSet(5,5);
-    boxes = [];
-    boxIdx = field.boxColors.indexOf("Blue");
-    box = encodeBox(field.fakeBoxes3[boxIdx], nextIntIn(0, 2));
-    res += box;
-    for(let i = 2; i <= 5; i++){
-        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
-        let box = encodeBox(field.fakeBoxes3[boxIdx], nextIntIn(0, 2));
-        boxes.push(box);
-    }
     for(let i = 1; i <= 5; i++){
-        res += boxes[randomIdxSet[i-1]];
+        let box = encodeBox(field.fakeBoxes3[randomIdxSet[i-1]], nextIntIn(0, 2));
+        res += box
     }
     fields[3] = res;
 

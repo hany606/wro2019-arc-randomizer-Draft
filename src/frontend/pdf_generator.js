@@ -29,13 +29,13 @@ export function generate_qualification() {
     }
 
     doc.addImage(logo, 'PNG', 5, 0, 55, 10);
-    doc.addImage(field, 'PNG', 5, 15, 100, 100);
-    doc.setFontSize(10);
-    doc.text(true_encoded_string.innerText, 105, 80);
-    doc.text("top-right: "+true_encoded_string_inner_text, 105, 85);
-    doc.text("top-left: "+true_encoded_string_inner_text, 105, 90);
-    doc.text("bottom-left: "+true_encoded_string_inner_text, 105, 95);
-    doc.text("bottom-right: "+true_encoded_string_inner_text, 105, 100);
+    doc.addImage(field, 'PNG', 0, 15, 100, 100);
+    doc.setFontSize(9);
+    doc.text(true_encoded_string.innerText, 100, 80);
+    doc.text("top-right: "+true_encoded_string_inner_text, 100, 85);
+    doc.text("top-left: "+true_encoded_string_inner_text, 100, 90);
+    doc.text("bottom-left: "+true_encoded_string_inner_text, 100, 95);
+    doc.text("bottom-right: "+true_encoded_string_inner_text, 100, 100);
     
 
     doc.rect(15,120,150,150);

@@ -14,7 +14,8 @@ window.onload = () => {
         render(field, encoded_descr);
         createQR(field, encoded_descr);
 
-        document.getElementById("get-pdf-button").addEventListener('click', generate);
+        document.getElementById("get-pdf-button-qualification").addEventListener('click', generate_qualification);
+        document.getElementById("get-pdf-button-final").addEventListener('click', generate_final);
 
     }).catch(err => {
         console.log("ERROR: " + err);

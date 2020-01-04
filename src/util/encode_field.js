@@ -37,29 +37,29 @@ export default function encodeField(field) {
     }
     fields[0] = res;
 
-    randomIdxSet = randomSet(5,5);
-    for(let i = 1; i <= 5; i++){
-        let boxIdx = field.boxColors.indexOf(boxesColors[randomIdxSet[i]]);
-        let box = encodeBox(field.fakeBoxes1[boxIdx], nextIntIn(0, 2));
-        res += box;  
-    }
-    fields[1] = res;
+    // randomIdxSet = randomSet(5,5);
+    // for(let i = 1; i <= 5; i++){
+    //     let boxIdx = field.boxColors.indexOf(boxesColors[randomIdxSet[i]]);
+    //     let box = encodeBox(field.fakeBoxes1[boxIdx], nextIntIn(0, 2));
+    //     res += box;  
+    // }
+    // fields[1] = res;
 
-    randomIdxSet = randomSet(5,5);
-    for(let i = 1; i <= 5; i++){
-        let boxIdx = field.boxColors.indexOf(boxesColors[randomIdxSet[i]]);
-        let box = encodeBox(field.fakeBoxes2[boxIdx], nextIntIn(0, 2));
-        res += box;  
-    }
-    fields[2] = res;
+    // randomIdxSet = randomSet(5,5);
+    // for(let i = 1; i <= 5; i++){
+    //     let boxIdx = field.boxColors.indexOf(boxesColors[randomIdxSet[i]]);
+    //     let box = encodeBox(field.fakeBoxes2[boxIdx], nextIntIn(0, 2));
+    //     res += box;  
+    // }
+    // fields[2] = res;
 
-    randomIdxSet = randomSet(5,5);
-    for(let i = 1; i <= 5; i++){
-        let boxIdx = field.boxColors.indexOf(boxesColors[randomIdxSet[i]]);
-        let box = encodeBox(field.fakeBoxes3[boxIdx], nextIntIn(0, 2));
-        res += box;  
-    }
-    fields[3] = res;
+    // randomIdxSet = randomSet(5,5);
+    // for(let i = 1; i <= 5; i++){
+    //     let boxIdx = field.boxColors.indexOf(boxesColors[randomIdxSet[i]]);
+    //     let box = encodeBox(field.fakeBoxes3[boxIdx], nextIntIn(0, 2));
+    //     res += box;  
+    // }
+    // fields[3] = res;
 
     console.log(fields)
 

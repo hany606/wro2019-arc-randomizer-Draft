@@ -13,8 +13,6 @@ export default function createQR(field, code) {
 
     QRCode.toCanvas(canvas, code,
         {
-            width: 227,
-            height: 227,
             color: { dark: "#000000", light : "#ffffff" },
             errorCorrectionLevel: 'H'
         },

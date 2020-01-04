@@ -11,8 +11,7 @@ export function generate_qualification() {
     let true_encoded_string = document.getElementById("true-encoded-field");
     
     let true_qr_code_string = String(true_encoded_string.innerText);
-    true_qr_code_string = true_qr_code_string.substring(43, true_qr_code_string.length);
-    
+    true_qr_code_string = true_qr_code_string.substring(44, true_qr_code_string.length);
 
     let true_qr_code = document.getElementById("qr-code-" + true_qr_code_string);
     let true_encoded_qr_code_string = document.getElementById("encoded-field-" + + true_qr_code_string);

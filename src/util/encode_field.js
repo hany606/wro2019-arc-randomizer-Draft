@@ -107,7 +107,7 @@ export default function encodeField(field) {
 
     let randomIdxSet = randomSet(5,5);
     for(let i = 1; i <= 5; i++){
-        let box = encodeBox(field.boxes[randomIdxSet[i-1]], nextIntIn(0, 2));
+        let box = encodeBox(field.boxes[randomIdxSet[i-1]-1], nextIntIn(0, 2));
         res += box
     }
     fields[0] = res;
@@ -115,7 +115,7 @@ export default function encodeField(field) {
     res = parkingZoneEncoding;
     randomIdxSet = randomSet(5,5);
     for(let i = 1; i <= 5; i++){
-        let box = encodeBox(field.fakeBoxes1[randomIdxSet[i-1]], nextIntIn(0, 2));
+        let box = encodeBox(field.fakeBoxes1[randomIdxSet[i-1]-1], nextIntIn(0, 2));
         res += box
     }
     fields[1] = res;
@@ -125,7 +125,7 @@ export default function encodeField(field) {
     res = parkingZoneEncoding;
     randomIdxSet = randomSet(5,5);
     for(let i = 1; i <= 5; i++){
-        let box = encodeBox(field.fakeBoxes2[randomIdxSet[i-1]], nextIntIn(0, 2));
+        let box = encodeBox(field.fakeBoxes2[randomIdxSet[i-1]-1], nextIntIn(0, 2));
         res += box
     }
     fields[2] = res;
@@ -134,7 +134,7 @@ export default function encodeField(field) {
     res = parkingZoneEncoding;
     randomIdxSet = randomSet(5,5);
     for(let i = 1; i <= 5; i++){
-        let box = encodeBox(field.fakeBoxes3[randomIdxSet[i-1]], nextIntIn(0, 2));
+        let box = encodeBox(field.fakeBoxes3[randomIdxSet[i-1]-1], nextIntIn(0, 2));
         res += box
     }
     fields[3] = res;

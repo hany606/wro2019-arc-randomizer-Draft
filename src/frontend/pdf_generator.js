@@ -21,16 +21,19 @@ export function generate_qualification() {
 
     let doc = new jsPDF({ unit: 'mm', format: "a4" });
 
+    doc.text("Qualification Round", 100, 0);
+
+
     let shift = 0;
     for (let coords of element_coords.children) {
-        doc.text(coords.innerText, 110, 15 + shift);
+        doc.text(coords.innerText, 100, 20 + shift);
         shift += 10;
     }
 
     doc.addImage(logo, 'PNG', 5, 0, 55, 10);
     doc.addImage(field, 'PNG', 0, 15, 100, 100);
     doc.setFontSize(9);
-    doc.text(true_encoded_string.innerText, 100, 80);
+    doc.text("All the QR-codes are correct and true for the playground", 100, 80);
     doc.text("top-right: "+true_encoded_string_inner_text, 100, 85);
     doc.text("top-left: "+true_encoded_string_inner_text, 100, 90);
     doc.text("bottom-left: "+true_encoded_string_inner_text, 100, 95);
@@ -68,20 +71,22 @@ export function generate_final() {
 
     let doc = new jsPDF({ unit: 'mm', format: "a4" });
 
+    doc.text("Final Round", 100, 0);
+
     let shift = 0;
     for (let coords of element_coords.children) {
-        doc.text(coords.innerText, 110, 15 + shift);
+        doc.text(coords.innerText, 100, 20 + shift);
         shift += 10;
     }
 
     doc.addImage(logo, 'PNG', 5, 0, 55, 10);
     doc.addImage(field, 'PNG', 5, 15, 100, 100);
     doc.setFontSize(10);
-    doc.text(true_encoded_string.innerText, 105, 80);
-    doc.text(encoded_string_top_right.innerText, 105, 85);
-    doc.text(encoded_string_top_left.innerText, 105, 90);
-    doc.text(encoded_string_bottom_left.innerText, 105, 95);
-    doc.text(encoded_string_bottom_right.innerText, 105, 100);
+    doc.text(true_encoded_string.innerText, 100, 80);
+    doc.text(encoded_string_top_right.innerText, 100, 85);
+    doc.text(encoded_string_top_left.innerText, 100, 90);
+    doc.text(encoded_string_bottom_left.innerText, 100, 95);
+    doc.text(encoded_string_bottom_right.innerText, 100, 100);
     
 
     doc.rect(15,120,150,150);

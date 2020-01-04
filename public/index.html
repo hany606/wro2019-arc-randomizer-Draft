@@ -37,11 +37,18 @@
     </div>
 
     <div class="column">
-        <p id="encoded-field" class="row"></p>
-        <div id="qr-codes">
-            <div class="qr-code top left">'
+        <p id="true-encoded-field"></p>
+        <div class="row">
+            <p id="encoded-field-top-left" class="row">top-left:</p>
+            <p id="encoded-field-bottom-left" class="row">bottom-left:</p>
+            <p id="encoded-field-top-right" class="row">top-right:</p>
+            <p id="encoded-field-bottom-right" class="row">bottom-right:</p>
+        </div>
+
+        <div id="qr-codes" class="row">
+            <div class="qr-code top left">
                 <canvas id="qr-code-top-left" class="qr-code-canvas"></canvas>
-            </div>
+            </div> 
             <div class="qr-code top right">
                 <canvas id="qr-code-top-right" class="qr-code-canvas"></canvas>
             </div>

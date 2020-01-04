@@ -13,6 +13,8 @@ export default function createQR(field, code) {
 
     QRCode.toCanvas(canvas, code,
         {
+            width: 226.77,
+            hight: 226.77,
             color: { dark: "#000000", light : "#ffffff" },
             errorCorrectionLevel: 'H'
         },
@@ -21,9 +23,9 @@ export default function createQR(field, code) {
         }
     );
 
-    var ctx = canvas.getContext("2d");
-    ctx.lineWidth = "3";
-    ctx.strokeStyle = "black";
-    ctx.rect(5, 5, 227, 227);
-    ctx.stroke();
+    // var ctx = canvas.getContext("2d");
+    // ctx.lineWidth = "3";
+    // ctx.strokeStyle = "black";
+    // ctx.rect(5, 5, 227, 227);
+    // ctx.stroke();
 }

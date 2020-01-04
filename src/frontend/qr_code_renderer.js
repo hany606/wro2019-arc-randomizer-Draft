@@ -24,7 +24,7 @@ export default function createQR(field, code) {
         
         if(index == 0){
             let true_encoded_field_text = document.getElementById("true-encoded-field");
-            true_encoded_field_text.appendChild(document.createTextNode("The true QR-code's for the field is in the "+ String(qr_codes_keys[index].slice(14,qr_codes_keys[index].length))));
+            true_encoded_field_text.appendChild(document.createTextNode("The true QR-code's for the field is in the "+ String(qr_codes_keys[i].slice(14,qr_codes_keys[i].length))));
         }
 
         let encoded_text = document.getElementById(qr_codes_keys[index]);

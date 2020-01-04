@@ -68,6 +68,7 @@ function encodeBox(box, key = nextIntIn(0, 1)) {
 
 
 export default function encodeField(field) {
+    let fields = [];
     let res = "";
 
     // parking zone top left point
@@ -100,5 +101,9 @@ export default function encodeField(field) {
     res += boxes[randomIdx];
     res += boxes[1-randomIdx];
 
-    return res;
+    fields[0] = res;
+    fields[1] = res;
+    fields[2] = res;
+    fields[3] = res;
+    return fields;
 }

@@ -8,10 +8,10 @@ export default function generate() {
     let logo = document.getElementsByTagName("img")[0];
     let field = document.getElementById("field-canvas");
     let qr_codes = document.getElementById('qr-codes');
-    let qr_code_top_right = document.getElementById("qr-code_top_right");
-    let qr_code_top_left = document.getElementById("qr-code_top_left");
-    let qr_code_bottom_left = document.getElementById("qr-code_bottom_left");
-    let qr_code_bottom_right = document.getElementById("qr-code_bottom_right");
+    let qr_code_top_right = document.getElementById("qr-code-top-right");
+    let qr_code_top_left = document.getElementById("qr-code-top-left");
+    let qr_code_bottom_left = document.getElementById("qr-code-bottom-left");
+    let qr_code_bottom_right = document.getElementById("qr-code-bottom-right");
 
     let true_encoded_string = document.getElementById("true-encoded-field");
     let encoded_string_top_right = document.getElementById("encoded-field-top-right");

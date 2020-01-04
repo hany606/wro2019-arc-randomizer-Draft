@@ -6,7 +6,7 @@ const QRCode = require('qrcode');
 
 
 export default function createQR(field, code) {
-    let canvas = document.getElementById("qr-code-top-left");
+    let canvas = document.getElementById("qr-code-top-right");
 
     let encoded_text = document.getElementById("encoded-field");
     encoded_text.appendChild(document.createTextNode(code));

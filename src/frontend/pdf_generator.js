@@ -80,7 +80,7 @@ export function generate_final() {
     }
 
     doc.addImage(logo, 'PNG', 5, 0, 55, 10);
-    doc.addImage(field, 'PNG', 5, 15, 100, 100);
+    doc.addImage(field, 'PNG', 0, 15, 100, 100);
     doc.setFontSize(10);
     doc.text(true_encoded_string.innerText, 100, 80);
     doc.text(encoded_string_top_right.innerText, 100, 85);

@@ -104,17 +104,70 @@ export default function encodeField(field) {
     // res += boxes[1-randomIdx];
 
     let randomIdxSet = randomSet(5,5);
-    for(let i = 1; i <= 5; i++){
-        let boxIdx = field.boxColors.indexOf(boxesColors[randomIdxSet[i]]);
+    let boxes = [];
+    let boxIdx = field.boxColors.indexOf("Blue");
+    let box = encodeBox(field.boxes[boxIdx], nextIntIn(0, 2));
+    res += box;
+    for(let i = 2; i <= 5; i++){
+        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
         let box = encodeBox(field.boxes[boxIdx], nextIntIn(0, 2));
-        res += box;  
+        boxes.push(box);
     }
-
-    console.log(res);
-    
+    for(let i = 1; i <= 5; i++){
+        res += boxes[randomIdxSet[i-1]];
+    }
     fields[0] = res;
+
+    res = "";
+    randomIdxSet = randomSet(5,5);
+    boxes = [];
+    boxIdx = field.boxColors.indexOf("Blue");
+    box = encodeBox(field.fakeBoxes1[boxIdx], nextIntIn(0, 2));
+    res += box;
+    for(let i = 2; i <= 5; i++){
+        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
+        let box = encodeBox(field.fakeBoxes1[boxIdx], nextIntIn(0, 2));
+        boxes.push(box);
+    }
+    for(let i = 1; i <= 5; i++){
+        res += boxes[randomIdxSet[i-1]];
+    }
     fields[1] = res;
+
+    res = "";
+    randomIdxSet = randomSet(5,5);
+    boxes = [];
+    boxIdx = field.boxColors.indexOf("Blue");
+    box = encodeBox(field.fakeBoxes2[boxIdx], nextIntIn(0, 2));
+    res += box;
+    for(let i = 2; i <= 5; i++){
+        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
+        let box = encodeBox(field.fakeBoxes2[boxIdx], nextIntIn(0, 2));
+        boxes.push(box);
+    }
+    for(let i = 1; i <= 5; i++){
+        res += boxes[randomIdxSet[i-1]];
+    }
     fields[2] = res;
+
+
+    res = "";
+    randomIdxSet = randomSet(5,5);
+    boxes = [];
+    boxIdx = field.boxColors.indexOf("Blue");
+    box = encodeBox(field.fakeBoxes3[boxIdx], nextIntIn(0, 2));
+    res += box;
+    for(let i = 2; i <= 5; i++){
+        boxIdx = field.boxColors.indexOf(field.cubeColors[boxIdx]);
+        let box = encodeBox(field.fakeBoxes3[boxIdx], nextIntIn(0, 2));
+        boxes.push(box);
+    }
+    for(let i = 1; i <= 5; i++){
+        res += boxes[randomIdxSet[i-1]];
+    }
     fields[3] = res;
+
+    console.log(fields);
+
     return fields;
 }

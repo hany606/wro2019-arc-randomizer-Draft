@@ -88,18 +88,24 @@ export function generate_final() {
     doc.addImage(field, 'PNG', 0, 15, 100, 100);
     doc.setFontSize(9);
     doc.text(true_encoded_string.innerText, 100, 80);
+    
     let tmp_color = hexToRgb(encoded_string_top_right.style.color);
-    doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[1]);
+    doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_top_right.innerText, 100, 85);
-    tmp_color = hexToRgb(encoded_string_top_right.style.color);
-    doc.setTextColor(hexToRgb(encoded_string_top_left.style.color));
+
+    tmp_color = hexToRgb(encoded_string_top_left.style.color);
+    doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_top_left.innerText, 100, 90);
-    tmp_color = hexToRgb(encoded_string_top_right.style.color);
-    doc.setTextColor(hexToRgb(encoded_string_bottom_left.style.color));
+    
+    tmp_color = hexToRgb(encoded_string_bottom_left.style.color);
+    console.log(encoded_string_top_right.style.color)
+    doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_bottom_left.innerText, 100, 95);
-    tmp_color = hexToRgb(encoded_string_top_right.style.color);
-    doc.setTextColor(hexToRgb(encoded_string_bottom_right.style.color));
+    
+    tmp_color = hexToRgb(encoded_string_bottom_right.style.color);
+    doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_bottom_right.innerText, 100, 100);
+    
     doc.setTextColor(0,0,0);
 
     doc.rect(15,120,150,150);

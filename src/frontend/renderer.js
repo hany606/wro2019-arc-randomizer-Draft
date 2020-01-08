@@ -53,7 +53,7 @@ export function render(field, encoded_descr) {
 
     //0x006600
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes3[i]);
+        drawFakeBox(field.fakeBoxes3[i],0x006600);
 
 
     // draw strings with field element coordinates

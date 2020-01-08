@@ -43,17 +43,17 @@ export function render(field, encoded_descr) {
         }
     }
 
-    //0x003366
+    //0xcc3300 -> Red
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes1[i],0x003366);
+        drawFakeBox(field.fakeBoxes1[i],0xcc3300);
 
-    //0xcc3300
+    //0x006600 -> Green
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes2[i],0xcc3300);
+        drawFakeBox(field.fakeBoxes2[i],0x006600);
 
-    //0x006600
+    //0x003366 -> Blue
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes3[i],0x006600);
+        drawFakeBox(field.fakeBoxes3[i],0x003366);
 
 
     // draw strings with field element coordinates

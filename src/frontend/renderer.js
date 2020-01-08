@@ -43,6 +43,15 @@ export function render(field, encoded_descr) {
         }
     }
 
+    for(let i = 0; i < 5; i++)
+        drawFakeBox(field.fakeBoxes1[i]);
+
+    for(let i = 0; i < 5; i++)
+        drawFakeBox(field.fakeBoxes2[i]);
+
+    for(let i = 0; i < 5; i++)
+        drawFakeBox(field.fakeBoxes3[i]);
+
 
     // draw strings with field element coordinates
     let descr = document.getElementById("field-descr");
@@ -175,6 +184,15 @@ function drawBox(rect, color=0x0000FF, fill=true) {
     app.stage.addChild(box);
 }
 
+function drawFakeBox(rect) {
+    let box = new PIXI.Graphics();
+
+    box.lineStyle(1, 0x000000);
+    box.drawRect(MARGIN + sm_to_px(rect.left), MARGIN + sm_to_px(rect.top),
+                    sm_to_px(rect.right - rect.left), sm_to_px(rect.bott - rect.top));
+
+    app.stage.addChild(box);
+}
 
 
 function drawText(x, y, text) {

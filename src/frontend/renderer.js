@@ -45,11 +45,11 @@ export function render(field, encoded_descr) {
 
     //0x003366
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes1[i]);
+        drawFakeBox(field.fakeBoxes1[i],0x003366);
 
     //0xcc3300
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes2[i]);
+        drawFakeBox(field.fakeBoxes2[i],0xcc3300);
 
     //0x006600
     for(let i = 0; i < 5; i++)

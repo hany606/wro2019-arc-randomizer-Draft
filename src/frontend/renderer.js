@@ -44,13 +44,13 @@ export function render(field, encoded_descr) {
     }
 
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes1[i]);
+        drawFakeBox(field.fakeBoxes1[i], color=0x003366);
 
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes2[i]);
+        drawFakeBox(field.fakeBoxes2[i], color=0xcc3300);
 
     for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes3[i]);
+        drawFakeBox(field.fakeBoxes3[i], color=0x006600);
 
 
     // draw strings with field element coordinates
@@ -184,10 +184,10 @@ function drawBox(rect, color=0x0000FF, fill=true) {
     app.stage.addChild(box);
 }
 
-function drawFakeBox(rect) {
+function drawFakeBox(rect, color=0x000000) {
     let box = new PIXI.Graphics();
 
-    box.lineStyle(1, 0x000000);
+    box.lineStyle(1, color, 2);
     box.drawRect(MARGIN + sm_to_px(rect.left), MARGIN + sm_to_px(rect.top),
                     sm_to_px(rect.right - rect.left), sm_to_px(rect.bott - rect.top));
 

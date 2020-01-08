@@ -30,7 +30,7 @@ export default function createQR(field, code) {
         let encoded_text = document.getElementById(qr_codes_keys[i-1]);
         encoded_text.appendChild(document.createTextNode(code[index]));
         if(index > 1)
-            encoded_text.style.color = text_colors_per_fake_qr[index];
+            encoded_text.style.color = text_colors_per_fake_qr[index-1];
 
         QRCode.toCanvas(canvas[i-1], code[index],
             {

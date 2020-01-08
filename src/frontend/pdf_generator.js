@@ -90,6 +90,8 @@ export function generate_final() {
     doc.text(true_encoded_string.innerText, 100, 80);
     
     let tmp_color = hexToRgb(encoded_string_top_right.style.color);
+    console.log(encoded_string_top_right.style.color);
+    console.log(tmp_color);
     doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_top_right.innerText, 100, 85);
 
@@ -98,7 +100,6 @@ export function generate_final() {
     doc.text(encoded_string_top_left.innerText, 100, 90);
     
     tmp_color = hexToRgb(encoded_string_bottom_left.style.color);
-    console.log(encoded_string_top_right.style.color)
     doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_bottom_left.innerText, 100, 95);
     

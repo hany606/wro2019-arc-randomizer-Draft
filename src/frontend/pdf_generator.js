@@ -4,6 +4,11 @@ import * as jsPDF from 'jspdf';
 
 const A4_SIZE = {width: 210, height: 297};
 
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
+  }
+
 export function generate_qualification() {
     let logo = document.getElementsByTagName("img")[0];
     let field = document.getElementById("field-canvas");
@@ -83,11 +88,15 @@ export function generate_final() {
     doc.addImage(field, 'PNG', 0, 15, 100, 100);
     doc.setFontSize(9);
     doc.text(true_encoded_string.innerText, 100, 80);
+    doc.setTextColor(hexToRgb(encoded_string_top_right.style.color));
     doc.text(encoded_string_top_right.innerText, 100, 85);
+    doc.setTextColor(hexToRgb(encoded_string_top_left.style.color));
     doc.text(encoded_string_top_left.innerText, 100, 90);
+    doc.setTextColor(hexToRgb(encoded_string_bottom_left.style.color));
     doc.text(encoded_string_bottom_left.innerText, 100, 95);
+    doc.setTextColor(hexToRgb(encoded_string_bottom_right.style.color));
     doc.text(encoded_string_bottom_right.innerText, 100, 100);
-    
+    doc.setTextColor([0,0,0]);
 
     doc.rect(15,120,150,150);
     doc.addImage(qr_code_top_left, 'PNG', 22.5, 127.5, 60, 60);

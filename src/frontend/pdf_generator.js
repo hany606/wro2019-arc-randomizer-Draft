@@ -5,7 +5,6 @@ import * as jsPDF from 'jspdf';
 const A4_SIZE = {width: 210, height: 297};
 
 function rgb_color_to_list(color_string){
-    let color_string = encoded_string_top_right.style.color;
     let color = [Number(color_string.substring(color_string.indexOf("(")+1,color_string.indexOf(','))),
                 Number(color_string.substring(color_string.indexOf(",")+1,color_string.lastIndexOf(','))),
                 Number(color_string.substring(color_string.lastIndexOf(",")+1,color_string.indexOf(')')))];

@@ -14,7 +14,7 @@ export default function createQR(field, code) {
     canvas[3] = document.getElementById("qr-code-bottom-right");
 
     let qr_codes_keys = ["encoded-field-top-right", "encoded-field-top-left", "encoded-field-bottom-left", "encoded-field-bottom-right"];
-    let text_colors_per_fake_qr = ["#cc3300", "#006600", "#003366"];
+    let text_colors_per_fake_qr = ["#003366", "#006600", "#cc3300"];
 
 
     let random_value = randomSet(4,4);

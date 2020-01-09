@@ -4,10 +4,15 @@ import * as jsPDF from 'jspdf';
 
 const A4_SIZE = {width: 210, height: 297};
 
-function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
-  }
+function rgb_color_to_list(color_string){
+    let color_string = encoded_string_top_right.style.color;
+    let color = [Number(color_string.substring(color_string.indexOf("(")+1,color_string.indexOf(','))),
+                Number(color_string.substring(color_string.indexOf(",")+1,color_string.lastIndexOf(','))),
+                Number(color_string.substring(color_string.lastIndexOf(",")+1,color_string.indexOf(')')))];
+    return color;
+
+}
+
 
 export function generate_qualification() {
     let logo = document.getElementsByTagName("img")[0];
@@ -89,21 +94,19 @@ export function generate_final() {
     doc.setFontSize(9);
     doc.text(true_encoded_string.innerText, 100, 80);
     
-    let tmp_color = hexToRgb(encoded_string_top_right.style.color);
-    console.log(encoded_string_top_right.style.color);
-    console.log(tmp_color);
+    let tmp_color = rgb_color_to_list(encoded_string_top_right.style.color)
     doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_top_right.innerText, 100, 85);
 
-    tmp_color = hexToRgb(encoded_string_top_left.style.color);
+    tmp_color = rgb_color_to_list(encoded_string_top_left.style.color);
     doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_top_left.innerText, 100, 90);
     
-    tmp_color = hexToRgb(encoded_string_bottom_left.style.color);
+    tmp_color = rgb_color_to_list(encoded_string_bottom_left.style.color);
     doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_bottom_left.innerText, 100, 95);
     
-    tmp_color = hexToRgb(encoded_string_bottom_right.style.color);
+    tmp_color = rgb_color_to_list(encoded_string_bottom_right.style.color);
     doc.setTextColor(tmp_color[0], tmp_color[1], tmp_color[2]);
     doc.text(encoded_string_bottom_right.innerText, 100, 100);
     

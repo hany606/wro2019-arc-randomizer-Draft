@@ -64,7 +64,5 @@ export default function encodeField(field) {
     }
     fields[3] = res;
 
-    console.log(fields);
-
     return fields;
 }

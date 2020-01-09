@@ -18,7 +18,6 @@ let app = null;
 // field - an object of type Field, containing the description of the field to render
 // encoded_descr - a string with some important data about the field
 export function render(field, encoded_descr) {
-    console.log(field);
     createApp();
 
     // draw letters on field border (as in the sea battle game)

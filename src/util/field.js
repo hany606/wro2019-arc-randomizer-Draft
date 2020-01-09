@@ -32,8 +32,6 @@ export default class Field {
 
         if(typeof descr === 'undefined' || descr === null) throw Error("Field description is undefined or null");
 
-        console.log(descr);
-
         if(isValidArrayOfN(descr.parkingZone, 4, isPoint)) { // all elements are points
 
             this.parkingZone = descr.parkingZone;

@@ -15,7 +15,7 @@ function rgb_color_to_list(color_string){
 
 export function generate_qualification() {
     let logo = document.getElementsByTagName("img")[0];
-    let field = document.getElementById("field-canvas");
+    let field = document.getElementById("field-canvas-qualification");
 
     let true_encoded_string = document.getElementById("true-encoded-field");
     
@@ -61,7 +61,7 @@ export function generate_qualification() {
 
 export function generate_final() {
     let logo = document.getElementsByTagName("img")[0];
-    let field = document.getElementById("field-canvas");
+    let field = document.getElementById("field-canvas-final");
     let qr_code_top_right = document.getElementById("qr-code-top-right");
     let qr_code_top_left = document.getElementById("qr-code-top-left");
     let qr_code_bottom_left = document.getElementById("qr-code-bottom-left");

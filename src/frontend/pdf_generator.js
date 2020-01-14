@@ -45,8 +45,7 @@ export function generate_qualification() {
     doc.text("All the QR-codes are correct and true for the playground", 100, 80);
     doc.text("All QR-codes: "+true_encoded_string_inner_text, 100, 85);
     
-
-    doc.rect(15,120,150,150);
+    doc.rect(15,120,150,150, "F");
     doc.addImage(true_qr_code, 'PNG', 17, 122, 65.5, 65.5);
     doc.addImage(true_qr_code, 'PNG', 92, 122, 65.5, 65.5);
     doc.addImage(true_qr_code, 'PNG', 17, 197, 65.5, 65.5);

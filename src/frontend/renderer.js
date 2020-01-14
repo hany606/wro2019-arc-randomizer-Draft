@@ -19,8 +19,8 @@ let app = null;
 // encoded_descr - a string with some important data about the field
 export function render(field, encoded_descr) {
     let canvasFields = ["final", "qualification"];
-    for(let canvas in canvasFields){
-        createApp(canvas);
+    for(let i in canvasFields){
+        createApp(canvasFields[i]);
 
         // draw letters on field border (as in the sea battle game)
         for (let i = 1; i <= 20; i++) {
@@ -45,7 +45,7 @@ export function render(field, encoded_descr) {
             }
         }
 
-        if(canvas == "final"){
+        if(canvasFields[i] == "final"){
             //0xcc3300 -> Red
             for(let i = 0; i < 5; i++)
                 drawFakeBox(field.fakeBoxes1[i],0xcc3300);
@@ -60,15 +60,16 @@ export function render(field, encoded_descr) {
         }
 
         // draw strings with field element coordinates
-        let descr = document.getElementById("field-descr");
-        let parkingZoneDescr = document.createElement("p");
-        parkingZoneDescr.setAttribute("class", "descr-paragraph");
-        let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
-                y: field.parkingZone[0].y + field.parkingZoneDirection.y};
-        parkingZoneDescr.appendChild(document.createTextNode(
-            "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
-        descr.appendChild(parkingZoneDescr);
-
+        if(i == 0){
+            let descr = document.getElementById("field-descr");
+            let parkingZoneDescr = document.createElement("p");
+            parkingZoneDescr.setAttribute("class", "descr-paragraph");
+            let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
+                    y: field.parkingZone[0].y + field.parkingZoneDirection.y};
+            parkingZoneDescr.appendChild(document.createTextNode(
+                "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
+            descr.appendChild(parkingZoneDescr);
+        }
         
         for(let i = 0; i < 5; i++) {
             let boxDescr = document.createElement("p");
@@ -97,7 +98,7 @@ function point(x, y) {
 
 function createApp(type) {
     initPixi();
-    let canvas = document.getElementById("field-canvas-final");
+    let canvas = document.getElementById("field-canvas-"+type);
     app = new PIXI.Application({width: MARGIN + WIDTH + 5, height: MARGIN + HEIGHT + 5, view: canvas, preserveDrawingBuffer: true});
     app.renderer.backgroundColor = 0xFFFFFF;
 }

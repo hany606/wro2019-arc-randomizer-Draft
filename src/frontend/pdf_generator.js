@@ -47,7 +47,7 @@ export function generate_qualification() {
     
 
     doc.rect(15,120,150,150);
-    doc.addImage(true_qr_code, 'PNG', 17, 122, 60, 60);
+    doc.addImage(true_qr_code, 'PNG', 17, 122, 65.5, 65.5);
     doc.addImage(true_qr_code, 'PNG', 97.5, 127.5, 60, 60);
     doc.addImage(true_qr_code, 'PNG', 22.5, 202.5, 60, 60);
     doc.addImage(true_qr_code, 'PNG', 97.5, 202.5, 60, 60);

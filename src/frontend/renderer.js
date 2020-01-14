@@ -61,15 +61,14 @@ export function render(field, encoded_descr) {
 
         // draw strings with field element coordinates
         let descr = document.getElementById("field-descr");
-        if(i == 0){
-            let parkingZoneDescr = document.createElement("p");
-            parkingZoneDescr.setAttribute("class", "descr-paragraph");
-            let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
-                    y: field.parkingZone[0].y + field.parkingZoneDirection.y};
-            parkingZoneDescr.appendChild(document.createTextNode(
-                "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
-            descr.appendChild(parkingZoneDescr);
-        }
+        let parkingZoneDescr = document.createElement("p");
+        parkingZoneDescr.setAttribute("class", "descr-paragraph");
+        let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
+                y: field.parkingZone[0].y + field.parkingZoneDirection.y};
+        parkingZoneDescr.appendChild(document.createTextNode(
+            "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
+        descr.appendChild(parkingZoneDescr);
+        
         
         for(let i = 0; i < 5; i++) {
             let boxDescr = document.createElement("p");

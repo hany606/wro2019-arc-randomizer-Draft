@@ -60,8 +60,8 @@ export function render(field, encoded_descr) {
         }
 
         // draw strings with field element coordinates
+        let descr = document.getElementById("field-descr");
         if(i == 0){
-            let descr = document.getElementById("field-descr");
             let parkingZoneDescr = document.createElement("p");
             parkingZoneDescr.setAttribute("class", "descr-paragraph");
             let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,

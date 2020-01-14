@@ -38,7 +38,8 @@ export default function createQR(field, code) {
                 width: 226.77,
                 hight: 226.77,
                 color: { dark: "#000000", light : "#ffffff" },
-                errorCorrectionLevel: 'H'
+                errorCorrectionLevel: 'H',
+                margin: 0
             },
             function (error) {
                 if (error) console.error(error);

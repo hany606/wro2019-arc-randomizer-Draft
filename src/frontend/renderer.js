@@ -18,69 +18,73 @@ let app = null;
 // field - an object of type Field, containing the description of the field to render
 // encoded_descr - a string with some important data about the field
 export function render(field, encoded_descr) {
-    createApp();
+    let canvasFields = ["final", "qualification"];
+    for(let canvas in canvasFields){
+        createApp(canvas);
 
-    // draw letters on field border (as in the sea battle game)
-    for (let i = 1; i <= 20; i++) {
-        drawText(i * sm_to_px(115), 10, String.fromCharCode('A'.charCodeAt(0) + i - 1));
-        drawText(10, i * sm_to_px(115), String.fromCharCode('A'.charCodeAt(0) + i - 1));
-    }
-
-    // draw crosses on the field
-    for (let i = 0; i <= sm_to_px(2300); i += sm_to_px(115)) {
-        for (let j = 0; j <= sm_to_px(2300); j += sm_to_px(115)) {
-            drawCross(MARGIN + i, MARGIN + j, 5);
+        // draw letters on field border (as in the sea battle game)
+        for (let i = 1; i <= 20; i++) {
+            drawText(i * sm_to_px(115), 10, String.fromCharCode('A'.charCodeAt(0) + i - 1));
+            drawText(10, i * sm_to_px(115), String.fromCharCode('A'.charCodeAt(0) + i - 1));
         }
-    }
 
-    drawParkingZone(...field.parkingZone);
-    for(let i = 0; i < 5; i++) {
-        drawBox(field.boxes[i], Color[field.boxColors[i]].value);
-        for(let p of [point(115 - 30, 0), point(0, 115 - 30), point(230 - 60, 115 - 30), point(115 - 30, 230 - 60)]) {
-            let b = field.boxes[i];
-            drawBox({top: b.top + p.y, left: b.left + p.x, bott: b.top + p.y + 60, right: b.left + p.x + 60},
-                Color[field.cubeColors[i]].value);
+        // draw crosses on the field
+        for (let i = 0; i <= sm_to_px(2300); i += sm_to_px(115)) {
+            for (let j = 0; j <= sm_to_px(2300); j += sm_to_px(115)) {
+                drawCross(MARGIN + i, MARGIN + j, 5);
+            }
         }
+
+        drawParkingZone(...field.parkingZone);
+        for(let i = 0; i < 5; i++) {
+            drawBox(field.boxes[i], Color[field.boxColors[i]].value);
+            for(let p of [point(115 - 30, 0), point(0, 115 - 30), point(230 - 60, 115 - 30), point(115 - 30, 230 - 60)]) {
+                let b = field.boxes[i];
+                drawBox({top: b.top + p.y, left: b.left + p.x, bott: b.top + p.y + 60, right: b.left + p.x + 60},
+                    Color[field.cubeColors[i]].value);
+            }
+        }
+
+        if(canvas == "final"){
+            //0xcc3300 -> Red
+            for(let i = 0; i < 5; i++)
+                drawFakeBox(field.fakeBoxes1[i],0xcc3300);
+
+            //0x006600 -> Green
+            for(let i = 0; i < 5; i++)
+                drawFakeBox(field.fakeBoxes2[i],0x006600);
+
+            //0x003366 -> Blue
+            for(let i = 0; i < 5; i++)
+                drawFakeBox(field.fakeBoxes3[i],0x003366);
+        }
+
+        // draw strings with field element coordinates
+        let descr = document.getElementById("field-descr");
+        let parkingZoneDescr = document.createElement("p");
+        parkingZoneDescr.setAttribute("class", "descr-paragraph");
+        let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
+                y: field.parkingZone[0].y + field.parkingZoneDirection.y};
+        parkingZoneDescr.appendChild(document.createTextNode(
+            "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
+        descr.appendChild(parkingZoneDescr);
+
+        
+        for(let i = 0; i < 5; i++) {
+            let boxDescr = document.createElement("p");
+            let p1;
+            let p2;
+            p1 = {x: field.boxes[i].right, y: field.boxes[i].top};
+            p2 = {x: field.boxes[i].left, y: field.boxes[i].bott};
+            p1 = encodePoint(p1);
+            p2 = encodePoint(p2);    
+            boxDescr.appendChild(document.createTextNode(field.boxColors[i] + ": (" + p1 + " " + p2 + ")"));
+            boxDescr.setAttribute("class", "descr-paragraph");
+            descr.appendChild(boxDescr);
+        }
+
+        drawBorder();
     }
-
-    //0xcc3300 -> Red
-    for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes1[i],0xcc3300);
-
-    //0x006600 -> Green
-    for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes2[i],0x006600);
-
-    //0x003366 -> Blue
-    for(let i = 0; i < 5; i++)
-        drawFakeBox(field.fakeBoxes3[i],0x003366);
-
-
-    // draw strings with field element coordinates
-    let descr = document.getElementById("field-descr");
-    let parkingZoneDescr = document.createElement("p");
-    parkingZoneDescr.setAttribute("class", "descr-paragraph");
-    let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
-               y: field.parkingZone[0].y + field.parkingZoneDirection.y};
-    parkingZoneDescr.appendChild(document.createTextNode(
-        "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
-    descr.appendChild(parkingZoneDescr);
-
-    
-    for(let i = 0; i < 5; i++) {
-        let boxDescr = document.createElement("p");
-        let p1;
-        let p2;
-        p1 = {x: field.boxes[i].right, y: field.boxes[i].top};
-        p2 = {x: field.boxes[i].left, y: field.boxes[i].bott};
-        p1 = encodePoint(p1);
-        p2 = encodePoint(p2);    
-        boxDescr.appendChild(document.createTextNode(field.boxColors[i] + ": (" + p1 + " " + p2 + ")"));
-        boxDescr.setAttribute("class", "descr-paragraph");
-        descr.appendChild(boxDescr);
-    }
-
-    drawBorder();
 }
 
 
@@ -91,9 +95,9 @@ function point(x, y) {
 
 
 
-function createApp() {
+function createApp(type) {
     initPixi();
-    let canvas = document.getElementById("field-canvas");
+    let canvas = document.getElementById("field-canvas-"+type);
     app = new PIXI.Application({width: MARGIN + WIDTH + 5, height: MARGIN + HEIGHT + 5, view: canvas, preserveDrawingBuffer: true});
     app.renderer.backgroundColor = 0xFFFFFF;
 }

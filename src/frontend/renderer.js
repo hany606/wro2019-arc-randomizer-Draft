@@ -61,26 +61,27 @@ export function render(field, encoded_descr) {
 
         // draw strings with field element coordinates
         let descr = document.getElementById("field-descr");
-        let parkingZoneDescr = document.createElement("p");
-        parkingZoneDescr.setAttribute("class", "descr-paragraph");
-        let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
-                y: field.parkingZone[0].y + field.parkingZoneDirection.y};
-        parkingZoneDescr.appendChild(document.createTextNode(
-            "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
-        descr.appendChild(parkingZoneDescr);
+        if(canvasFields[i] == "final"){
+            let parkingZoneDescr = document.createElement("p");
+            parkingZoneDescr.setAttribute("class", "descr-paragraph");
+            let dir = {x: field.parkingZone[0].x + field.parkingZoneDirection.x,
+                    y: field.parkingZone[0].y + field.parkingZoneDirection.y};
+            parkingZoneDescr.appendChild(document.createTextNode(
+                "Parking Zone: (" + encodePoint(field.parkingZone[0]) + " " + encodePoint(dir) + ")"));
+            descr.appendChild(parkingZoneDescr);        
         
-        
-        for(let i = 0; i < 5; i++) {
-            let boxDescr = document.createElement("p");
-            let p1;
-            let p2;
-            p1 = {x: field.boxes[i].right, y: field.boxes[i].top};
-            p2 = {x: field.boxes[i].left, y: field.boxes[i].bott};
-            p1 = encodePoint(p1);
-            p2 = encodePoint(p2);    
-            boxDescr.appendChild(document.createTextNode(field.boxColors[i] + ": (" + p1 + " " + p2 + ")"));
-            boxDescr.setAttribute("class", "descr-paragraph");
-            descr.appendChild(boxDescr);
+            for(let i = 0; i < 5; i++) {
+                let boxDescr = document.createElement("p");
+                let p1;
+                let p2;
+                p1 = {x: field.boxes[i].right, y: field.boxes[i].top};
+                p2 = {x: field.boxes[i].left, y: field.boxes[i].bott};
+                p1 = encodePoint(p1);
+                p2 = encodePoint(p2);    
+                boxDescr.appendChild(document.createTextNode(field.boxColors[i] + ": (" + p1 + " " + p2 + ")"));
+                boxDescr.setAttribute("class", "descr-paragraph");
+                descr.appendChild(boxDescr);
+            }
         }
 
         drawBorder();

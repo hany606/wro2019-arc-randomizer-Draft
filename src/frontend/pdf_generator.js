@@ -46,7 +46,7 @@ export function generate_qualification() {
     doc.text("All QR-codes: "+true_encoded_string_inner_text, 100, 85);
     
 
-    doc.rect(15,120,150,150, "F");
+    doc.rect(15,120,150,150);
     doc.addImage(true_qr_code, 'PNG', 22.5, 127.5, 60, 60);
     doc.addImage(true_qr_code, 'PNG', 97.5, 127.5, 60, 60);
     doc.addImage(true_qr_code, 'PNG', 22.5, 202.5, 60, 60);
